@@ -15,23 +15,55 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-  </header>
-  <main>
-    <div data-view="entry-form">
-      <form>
-        <label>Title
-          <input type="text" name="title">
-        </label>
-        <label>Photo URL
-          <input type="url" name="photo-url">
-        </label>
-        <label>Notes
-          <textarea name="notes"></textarea>
-        </label>
-      </form>
+    <div class="row background-color-dark-slate-blue">
+      <div class="column-full">
+        <div class="container">
+          <header>
+            <h3 class="color-white">Code Journal</h3>
+          </header>
+        </div>
+      </div>
     </div>
-  </main>
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div data-view="entry-form">
+            <form>
+              <div class="row">
+                <div class="column-half">
+                  <img src="images/placeholder-image-square.jpg">
+                </div>
+                <div class="column-half">
+                  <label><h4>Title</h4>
+                    <input type="text" name="title">
+                  </label>
+                  <label><h4 class="margin-top-45">Photo URL</h4>
+                    <input type="url" name="photo-url">
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column-full">
+                  <label class="padding-bottom"><h4 class="margin-top-45">Notes</h4>
+                    <textarea rows="10" class="display-block" name="notes"></textarea>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column-full text-align-right">
+                  <label>
+                    <button class="margin-top">SAVE</button>
+                  </label>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+      </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
