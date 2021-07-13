@@ -26,12 +26,11 @@ function submitUserInput(event) {
       dataObject.notes = input[i].value;
     }
   }
+  dataObject.entryId = data.nextEntryId;
   data.nextEntryId += 1;
-  dataObject.nextEntryId = data.nextEntryId;
   data.entries.unshift(dataObject);
   inputForm.reset();
   image.src = 'images/placeholder-image-square.jpg';
-  localStorage.setItem('entry-object', JSON.stringify(dataObject));
 }
 
 window.addEventListener('beforeunload', function getEntry() {
