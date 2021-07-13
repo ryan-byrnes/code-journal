@@ -38,4 +38,19 @@ function submitUserInput(event) {
   image.src = 'images/placeholder-image-square.jpg';
   localStorage.setItem('entry-object', JSON.stringify(dataObject));
   localStorage.setItem('data-model', JSON.stringify(dataModel));
+  return dataModel;
+}
+
+window.addEventListener('beforeunload', function getEntry() {
+  localStorage.setItem('entry-id', JSON.stringify('entryId'));
+});
+
+var previousEntryID = localStorage.getItem('entry-id');
+if (previousEntryID !== null) {
+  entryId = JSON.parse('previousEntryID');
+}
+
+var previousInput = localStorage.getItem('data-model');
+if (previousInput !== null) {
+  dataModel = JSON.parse(previousInput);
 }
