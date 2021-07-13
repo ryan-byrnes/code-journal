@@ -25,14 +25,10 @@
 
   .column-full,
   .column-half {
-    padding: 0 0.75rem;
+    padding: 0 0.9rem;
   }
 
   .column-half {
     width: 50%;
   }
-}
-
-img {
-  width: 100%;
 }
