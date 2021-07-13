@@ -32,3 +32,62 @@ function submitUserInput(event) {
   inputForm.reset();
   image.src = 'images/placeholder-image-square.jpg';
 }
+
+/*
+<ul>
+  <div class="row">
+    <div class="column-half">
+      <li>
+        <img src="images/placeholder-image-square.jpg">
+      </li>
+    </div>
+    <div class="column-half">
+      <li>
+        <h2 class="margin-top-10">Ada Lovelace</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt facere, neque eos consequuntur adipisci modi voluptas nihil quia aspernatur nemo sint? Quis minus numquam asperiores? Cumque asperiores repellendus repellat iusto porro rem delectus fuga id nam, tenetur doloribus consequuntur quam sapiente deserunt eius facere dolorum obcaecati exercitationem dolor magni ullam reiciendis! Excepturi suscipit labore odio ullam, ipsa voluptatum cum aliquid maiores. Ad deleniti totam dolor commodi quod, quae fuga, laboriosam illo alias ut perferendis libero animi error perspiciatis quibusdam blanditiis?</p>
+      </li>
+    </div>
+  </div>
+</ul>
+*/
+
+function addEntry(entry) {
+
+  var newUnorderedList = document.createElement('ul');
+  var dataViewEntry = document.querySelector('div[data-view="entries"]');
+  dataViewEntry.appendChild(newUnorderedList);
+
+  var divRow = document.createElement('div');
+  divRow.setAttribute('class', 'row');
+  newUnorderedList.appendChild(divRow);
+
+  var divColumnHalf1 = document.createElement('div');
+  divColumnHalf1.setAttribute('class', 'column-half');
+  divRow.appendChild(divColumnHalf1);
+
+  var liImage = document.createElement('li');
+  divColumnHalf1.appendChild(liImage);
+
+  var image = document.createElement('img');
+  image.setAttribute('src', entry.url);
+  liImage.appendChild(image);
+
+  var divColumnHalf2 = document.createElement('div');
+  divColumnHalf2.setAttribute('class', 'column-half');
+  divRow.appendChild(divColumnHalf2);
+
+  var liText = document.createElement('li');
+  divColumnHalf2.appendChild(liText);
+
+  var heading = document.createElement('h2');
+  heading.textContent = entry.title;
+  liText.appendChild(heading);
+
+  var bodyText = document.createElement('p');
+  bodyText.textContent = entry.notes;
+  liText.appendChild(bodyText);
+
+  return newUnorderedList;
+}
+
+addEntry();
