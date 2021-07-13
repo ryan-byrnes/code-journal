@@ -14,11 +14,56 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
+<body class="background-color-gray">
+    <div class="row background-color-dark-slate-blue">
+      <div class="column-full">
+        <div class="container">
+          <header>
+            <h3 class="color-white font-weight-lighter">Code Journal</h3>
+          </header>
+        </div>
+      </div>
+    </div>
+      <main>
+        <div class="container">
+          <div class="row">
+            <div class="column-full">
+              <h1>New Entry</h1>
+            </div>
+          </div>
+          <div data-view="entry-form">
+            <form class="input-form">
+              <div class="row">
+                <div class="column-half">
+                  <img src="images/placeholder-image-square.jpg">
+                </div>
+                <div class="column-half">
+                  <label><h3 class="transform-translate-y">Title</h3>
+                    <input required type="text" name="title">
+                  </label>
+                  <label><h3 class="margin-top-45 transform-translate-y">Photo URL</h3>
+                    <input required class="photo-url" type="url" name="photo-url">
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column-full">
+                  <label class="padding-bottom"><h3 class="margin-top-45 transform-translate-y">Notes</h3>
+                    <textarea required rows="10" class="display-block" name="notes"></textarea>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column-full text-align-right">
+                  <label>
+                    <button class="margin-top">SAVE</button>
+                  </label>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+      </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
