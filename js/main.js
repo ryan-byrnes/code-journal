@@ -36,4 +36,6 @@ function submitUserInput(event) {
   dataModel.unshift(dataObject);
   inputForm.reset();
   image.src = 'images/placeholder-image-square.jpg';
+  localStorage.setItem('entry-object', JSON.stringify(dataObject));
+  localStorage.setItem('data-model', JSON.stringify(dataModel));
 }
