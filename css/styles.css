@@ -42,6 +42,10 @@ header {
   padding: 0 0.75rem;
 }
 
+li {
+  padding-bottom: 50px;
+}
+
 ul li {
   list-style: none;
 }
@@ -66,8 +70,12 @@ ul {
   margin-top: 45px;
 }
 
-.margin-top {
+.margin-top-20 {
   margin-top: 20px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
 }
 
 .text-align-right {
