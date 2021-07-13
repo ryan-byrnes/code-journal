@@ -1,7 +1,7 @@
 /* global data */
 /* exported data */
 
-var image = document.querySelector('img');
+var image = document.querySelector('.entry-image');
 var imageInput = document.querySelector('.photo-url');
 
 imageInput.addEventListener('input', imagePreview);
@@ -20,7 +20,7 @@ formInput.addEventListener('submit', submitUserInput);
 function submitUserInput(event) {
   event.preventDefault();
   var dataObject = {};
-  var image = document.querySelector('img');
+  var image = document.querySelector('.entry-image');
   var inputForm = document.querySelector('.input-form');
   var input = inputForm.elements;
   dataObject.title = input.title.value;
@@ -51,7 +51,7 @@ function submitUserInput(event) {
 </ul>
 */
 
-function addEntry(entry) {
+function addEntry(entries) {
 
   var newUnorderedList = document.createElement('ul');
   var dataViewEntry = document.querySelector('div[data-view="entries"]');
@@ -69,7 +69,7 @@ function addEntry(entry) {
   divColumnHalf1.appendChild(liImage);
 
   var image = document.createElement('img');
-  image.setAttribute('src', entry.url);
+  image.setAttribute('src', entries.url);
   liImage.appendChild(image);
 
   var divColumnHalf2 = document.createElement('div');
@@ -80,14 +80,21 @@ function addEntry(entry) {
   divColumnHalf2.appendChild(liText);
 
   var heading = document.createElement('h2');
-  heading.textContent = entry.title;
+  heading.textContent = entries.title;
   liText.appendChild(heading);
 
   var bodyText = document.createElement('p');
-  bodyText.textContent = entry.notes;
+  bodyText.textContent = entries.notes;
   liText.appendChild(bodyText);
 
   return newUnorderedList;
 }
 
-addEntry();
+// localStorage.clear();
+
+window.addEventListener('DOMContentLoaded', function appendEntries() {
+  for (var i = 0; i < data.entries.length; i++) {
+    var dataViewEntries = document.querySelector('div[data-view="entries"]');
+    dataViewEntries.appendChild(addEntry(data.entries[i]));
+  }
+});
