@@ -8,6 +8,9 @@ imageInput.addEventListener('input', imagePreview);
 
 function imagePreview(event) {
   image.src = event.target.value;
+  if (event.target.value === '') {
+    image.src = 'images/placeholder-image-square.jpg';
+  }
 }
 
 var formInput = document.querySelector('.input-form');

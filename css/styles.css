@@ -1,3 +1,7 @@
+body {
+  font-family: sans-serif;
+}
+
 button {
   background-color: darkslateblue;
   color: white;
@@ -9,7 +13,7 @@ button {
 }
 
 h4 {
-  line-height: 1%;
+  transform: translateY(10px);
 }
 
 input {
@@ -19,6 +23,8 @@ input {
 textarea {
   width: 100%;
   resize: none;
+  border: 3px solid darkslateblue;
+  border-radius: 5px;
 }
 
 .background-color-dark-slate-blue {
@@ -43,4 +49,8 @@ textarea {
 
 .text-align-right {
   text-align: right;
+}
+
+.background-color-gray {
+  background-color: rgb(240, 240, 240);
 }
