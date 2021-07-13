@@ -42,6 +42,14 @@ header {
   padding: 0 0.75rem;
 }
 
+ul li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
 .background-color-dark-slate-blue {
   background-color: darkslateblue;
 }
