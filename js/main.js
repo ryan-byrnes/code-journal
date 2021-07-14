@@ -99,6 +99,9 @@ window.addEventListener('DOMContentLoaded', function appendEntries() {
 });
 
 document.addEventListener('submit', function appendSubmission() {
+  var hideForm = document.getElementById('entry-form');
   var appendEntry = document.querySelector('ul');
   appendEntry.prepend(addEntry(data.entries[0]));
+  hideForm.classList.add('hidden');
+  location.href = '#entries-view';
 });
