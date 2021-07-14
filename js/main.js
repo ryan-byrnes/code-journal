@@ -70,6 +70,7 @@ function addEntry(entries) {
 
   var image = document.createElement('img');
   image.setAttribute('src', entries.url);
+  image.setAttribute('class', 'dom-tree-image');
   liImage.appendChild(image);
 
   var divColumnHalf2 = document.createElement('div');
