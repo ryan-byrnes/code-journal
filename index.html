@@ -22,7 +22,7 @@
               <div class="row">
                 <h3 class="color-white font-weight-lighter">Code Journal</h3>
                 <nav>
-                  <h4 class="padding-left font-weight-lighter"><a class="color-white" href="#entries-view">Entries</a></h4>
+                  <h4 class="padding-left font-weight-lighter"><a id="entries-nav" class="color-white" href="#entries-view">Entries</a></h4>
                 </nav>
               </div>
           </header>
@@ -36,14 +36,19 @@
               <h1>Entries</h1>
             </div>
             <div class="column-half text-align-right">
-              <button class="margin-top-em">NEW</button>
+              <button class="new-entry margin-top-em">NEW</button>
             </div>
           </div>
-          <div class="" data-view="entries">
+          <div id="no-entries" class="row text-align-center margin-top-20">
+            <div class="column-full">
+              <p>No entries have been recorded.</p>
+            </div>
+          </div>
+          <div data-view="entries">
 
           </div>
         </div>
-        <div id="entry-form" class="container">
+        <div id="entry-form" class="container hidden">
           <div class="row">
             <div class="column-full">
               <h1>New Entry</h1>

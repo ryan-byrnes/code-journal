@@ -99,9 +99,42 @@ window.addEventListener('DOMContentLoaded', function appendEntries() {
 });
 
 document.addEventListener('submit', function appendSubmission() {
+  var dataViewEntries = document.querySelector('div[data-view="entries"]');
   var hideForm = document.getElementById('entry-form');
   var appendEntry = document.querySelector('ul');
-  appendEntry.prepend(addEntry(data.entries[0]));
+  if (data.entries[0] === []) {
+    dataViewEntries.appendChild(addEntry(data.entries[0]));
+  } else {
+    appendEntry.prepend(addEntry(data.entries[0]));
+  }
   hideForm.classList.add('hidden');
+  var showEntryView = document.getElementById('entries-view');
+  showEntryView.classList.remove('hidden');
+  var hideNoEntryText = document.getElementById('no-entries');
+  hideNoEntryText.classList.add('hidden');
   location.href = '#entries-view';
+});
+
+var newEntryButton = document.querySelector('.new-entry');
+
+newEntryButton.addEventListener('click', function showForm() {
+  var entryForm = document.getElementById('entry-form');
+  entryForm.classList.remove('hidden');
+  var hideEntryView = document.getElementById('entries-view');
+  hideEntryView.classList.add('hidden');
+});
+
+var navBarEntries = document.getElementById('entries-nav');
+navBarEntries.addEventListener('click', function hideForm() {
+  var entryForm = document.getElementById('entry-form');
+  entryForm.className = 'container hidden';
+  var entryView = document.getElementById('entries-view');
+  entryView.className = 'container';
+});
+
+window.addEventListener('load', function checkEntries() {
+  var hideNoEntryText = document.getElementById('no-entries');
+  if (data.entries[0]) {
+    hideNoEntryText.className = 'hidden';
+  }
 });
