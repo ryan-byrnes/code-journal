@@ -91,11 +91,14 @@ function addEntry(entries) {
   return newUnorderedList;
 }
 
-// localStorage.clear();
-
 window.addEventListener('DOMContentLoaded', function appendEntries() {
   for (var i = 0; i < data.entries.length; i++) {
     var dataViewEntries = document.querySelector('div[data-view="entries"]');
     dataViewEntries.appendChild(addEntry(data.entries[i]));
   }
+});
+
+document.addEventListener('submit', function appendSubmission() {
+  var appendEntry = document.querySelector('ul');
+  appendEntry.prepend(addEntry(data.entries[0]));
 });
