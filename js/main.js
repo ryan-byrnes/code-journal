@@ -60,40 +60,60 @@ function submitUserInput() {
 
 function addEntry(entries) {
 
-  var newUnorderedList = document.createElement('ul');
-  var dataViewEntry = document.querySelector('div[data-view="entries"]');
-  dataViewEntry.appendChild(newUnorderedList);
+  var newUnorderedList = document.querySelector('ul');
+
+  var listItem = document.createElement('li');
+  newUnorderedList.appendChild(listItem);
 
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
-  newUnorderedList.appendChild(divRow);
+  listItem.appendChild(divRow);
 
   var divColumnHalf1 = document.createElement('div');
   divColumnHalf1.setAttribute('class', 'column-half');
   divRow.appendChild(divColumnHalf1);
 
-  var liImage = document.createElement('li');
-  divColumnHalf1.appendChild(liImage);
-
   var image = document.createElement('img');
   image.setAttribute('src', entries.url);
   image.setAttribute('class', 'dom-tree-image');
-  liImage.appendChild(image);
+  divColumnHalf1.appendChild(image);
 
   var divColumnHalf2 = document.createElement('div');
   divColumnHalf2.setAttribute('class', 'column-half');
   divRow.appendChild(divColumnHalf2);
 
-  var liText = document.createElement('li');
-  divColumnHalf2.appendChild(liText);
+  var divRow2 = document.createElement('div');
+  divRow2.setAttribute('class', 'row set-height');
+  divColumnHalf2.appendChild(divRow2);
+
+  var divColumnHalf3 = document.createElement('div');
+  divColumnHalf3.setAttribute('class', 'column-half padding-left-0');
+  divRow2.appendChild(divColumnHalf3);
 
   var heading = document.createElement('h2');
   heading.textContent = entries.title;
-  liText.appendChild(heading);
+  divColumnHalf3.appendChild(heading);
+
+  var divColumnHalf4 = document.createElement('div');
+  divColumnHalf4.setAttribute('class', 'column-half padding-right-0');
+  divRow2.appendChild(divColumnHalf4);
+
+  var editIconDiv = document.createElement('div');
+  editIconDiv.setAttribute('class', 'icon-container');
+  divColumnHalf4.appendChild(editIconDiv);
+
+  var editIcon = document.createElement('i');
+  editIcon.setAttribute('class', 'fas fa-pen edit-icon');
+  editIconDiv.appendChild(editIcon);
+
+  var divRow3 = document.createElement('div');
+  divRow3.setAttribute('class', 'row');
+  divColumnHalf2.appendChild(divRow3);
 
   var bodyText = document.createElement('p');
+  bodyText.setAttribute('class', 'text-content');
   bodyText.textContent = entries.notes;
-  liText.appendChild(bodyText);
+  divRow3.appendChild(bodyText);
 
   return newUnorderedList;
 }

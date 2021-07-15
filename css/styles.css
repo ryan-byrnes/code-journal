@@ -120,3 +120,29 @@ ul {
 .text-align-center {
   text-align: center;
 }
+
+.icon-container {
+  text-align: right;
+}
+
+.padding-left-0 {
+  padding-left: 0;
+}
+
+.edit-icon {
+  width: 200px;
+  height: 200px;
+  padding-top: 28px;
+  color: darkslateblue;
+  padding-right: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .edit-icon {
+    transform: translateY(-66.5px);
+  }
+}
+
+.set-height {
+  height: 55px;
+}
