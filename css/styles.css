@@ -46,6 +46,11 @@ ul li {
 
 ul {
   padding: 0;
+  list-style: none;
+}
+
+.created-li {
+  list-style: none;
 }
 
 .background-color-dark-slate-blue {
