@@ -122,9 +122,9 @@ newEntryButton.addEventListener('click', function showForm() {
 var navBarEntries = document.getElementById('entries-nav');
 navBarEntries.addEventListener('click', function hideForm() {
   var entryForm = document.getElementById('entry-form');
-  entryForm.className = 'container hidden';
+  entryForm.className = 'container view hidden';
   var entryView = document.getElementById('entries-view');
-  entryView.className = 'container';
+  entryView.className = 'container view';
 });
 
 window.addEventListener('load', function checkEntries() {
