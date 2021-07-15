@@ -13,8 +13,6 @@ function imagePreview(event) {
   }
 }
 
-// var formInput = document.querySelector('.input-form');
-
 document.addEventListener('submit', submitUserInput);
 
 function submitUserInput() {
@@ -32,15 +30,14 @@ function submitUserInput() {
   inputForm.reset();
   image.src = 'images/placeholder-image-square.jpg';
   var dataViewEntries = document.querySelector('ul');
-  // var hideForm = document.getElementById('entry-form');
   dataViewEntries.prepend(addEntry(data.entries[0]));
-  /* hideForm.classList.add('hidden');
-  var showEntryView = document.getElementById('entries-view');
-  showEntryView.classList.remove('hidden');
   var hideNoEntryText = document.getElementById('no-entries');
-  hideNoEntryText.classList.add('hidden'); */
+  hideNoEntryText.classList.add('hidden');
+  var entriesView = document.getElementById('entries-view');
+  data.view = entriesView.getAttribute('data-view');
   location.href = '#entries-view';
   switchViews();
+
 }
 
 /*
@@ -108,38 +105,20 @@ window.addEventListener('DOMContentLoaded', function appendEntries() {
   }
 });
 
-/* document.addEventListener('submit', function appendSubmission() {
-  var dataViewEntries = document.querySelector('ul');
-  // var hideForm = document.getElementById('entry-form');
-  dataViewEntries.prepend(addEntry(data.entries[0]));
-  /* hideForm.classList.add('hidden');
-  var showEntryView = document.getElementById('entries-view');
-  showEntryView.classList.remove('hidden');
-  var hideNoEntryText = document.getElementById('no-entries');
-  hideNoEntryText.classList.add('hidden');
-  location.href = '#entries-view';
+var showEntryView = document.getElementById('entries-nav');
+
+showEntryView.addEventListener('click', function () {
+  var entriesView = document.getElementById('entries-view');
+  data.view = entriesView.getAttribute('data-view');
   switchViews();
-}); */
-
-var showEntryView = document.getElementById('entries-view');
-
-showEntryView.addEventListener('click', switchViews);
+});
 
 var newEntryButton = document.querySelector('.new-entry');
 
-newEntryButton.addEventListener('click', switchViews); /* function showForm() { */
-/* var entryForm = document.getElementById('entry-form');
-  entryForm.classList.remove('hidden');
-  var hideEntryView = document.getElementById('entries-view');
-  hideEntryView.classList.add('hidden');
-}); */
-
-var navBarEntries = document.getElementById('entries-nav');
-navBarEntries.addEventListener('click', function hideForm() {
+newEntryButton.addEventListener('click', function () {
   var entryForm = document.getElementById('entry-form');
-  entryForm.className = 'container view hidden';
-  var entryView = document.getElementById('entries-view');
-  entryView.className = 'container view';
+  data.view = entryForm.getAttribute('data-view');
+  switchViews();
 });
 
 window.addEventListener('load', function checkEntries() {
@@ -164,14 +143,9 @@ function switchViews() {
   var viewElements = document.querySelectorAll('.view');
   for (var i = 0; i < viewElements.length; i++) {
     if (data.view === viewElements[i].getAttribute('data-view')) {
-      viewElements[i].className = 'container hidden view';
-    } else {
       viewElements[i].className = 'container view';
+    } else {
+      viewElements[i].className = 'container hidden view';
     }
   }
-  data.view = document.querySelector('.container .view').getAttribute('data-view');
-  return data.view;
 }
-
-/* click event listener for entries anchor and 'new' button
-add switchViews to submit event listener */
