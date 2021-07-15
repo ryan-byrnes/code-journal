@@ -99,14 +99,9 @@ window.addEventListener('DOMContentLoaded', function appendEntries() {
 });
 
 document.addEventListener('submit', function appendSubmission() {
-  var dataViewEntries = document.querySelector('div[data-view="entries"]');
+  var dataViewEntries = document.querySelector('ul');
   var hideForm = document.getElementById('entry-form');
-  var appendEntry = document.querySelector('ul');
-  if (data.entries[0] === []) {
-    dataViewEntries.appendChild(addEntry(data.entries[0]));
-  } else {
-    appendEntry.prepend(addEntry(data.entries[0]));
-  }
+  dataViewEntries.prepend(addEntry(data.entries[0]));
   hideForm.classList.add('hidden');
   var showEntryView = document.getElementById('entries-view');
   showEntryView.classList.remove('hidden');
@@ -136,5 +131,16 @@ window.addEventListener('load', function checkEntries() {
   var hideNoEntryText = document.getElementById('no-entries');
   if (data.entries[0]) {
     hideNoEntryText.className = 'hidden';
+  }
+});
+
+window.addEventListener('load', function assignClassNames() {
+  var viewElements = document.querySelectorAll('.view');
+  for (var i = 0; i < viewElements.length; i++) {
+    if (data.view === viewElements[i].getAttribute('data-view')) {
+      viewElements[i].className = 'container view';
+    } else {
+      viewElements[i].className = 'container view hidden';
+    }
   }
 });
