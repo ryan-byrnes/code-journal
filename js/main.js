@@ -134,7 +134,7 @@ window.addEventListener('load', function checkEntries() {
   }
 });
 
-window.addEventListener('load', function assignClassNames() {
+window.addEventListener('load', function switchViews() {
   var viewElements = document.querySelectorAll('.view');
   for (var i = 0; i < viewElements.length; i++) {
     if (data.view === viewElements[i].getAttribute('data-view')) {
@@ -144,3 +144,6 @@ window.addEventListener('load', function assignClassNames() {
     }
   }
 });
+
+/* click event listener for entries anchor and 'new' button
+add switchViews to submit event listener */
