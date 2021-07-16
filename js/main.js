@@ -181,6 +181,18 @@ function parentListener() {
     switchViews();
     var entryId = event.target.closest('li[data-entry-id]');
     data.editing = entryId.getAttribute('data-entry-id');
+    var inputForm = document.querySelector('.input-form');
+    var input = inputForm.elements;
+    var titleContent = event.target.closest('.row').textContent;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (titleContent === data.entries[i].title) {
+        input.title.value = titleContent;
+        input['photo-url'].value = data.entries[i].url;
+        input.notes.value = data.entries[i].notes;
+      }
+    }
+    var image = document.querySelector('.entry-image');
+    image.src = input['photo-url'].value;
   }
 }
 
