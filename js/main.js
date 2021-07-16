@@ -37,7 +37,6 @@ function submitUserInput() {
   data.view = entriesView.getAttribute('data-view');
   var h1Tag = document.querySelector('.edit-header');
   h1Tag.textContent = 'New Entry';
-  location.href = '#entries-view';
   switchViews();
 
 }
@@ -64,7 +63,7 @@ function addEntry(entries) {
 
   var listItem = document.createElement('li');
   listItem.setAttribute('class', 'created-li');
-  listItem.setAttribute('data-entry-id', data.nextEntryId - 1);
+  listItem.setAttribute('data-entry-id', entries.entryId);
 
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row');
@@ -180,7 +179,11 @@ function parentListener() {
     h1Tag.textContent = 'Edit Entry';
     data.view = entryForm.getAttribute('data-view');
     switchViews();
+    var entryId = event.target.closest('li[data-entry-id]');
+    data.editing = entryId.getAttribute('data-entry-id');
   }
 }
 
-document.addEventListener('click', parentListener);
+var parentElement = document.querySelector('body');
+
+parentElement.addEventListener('click', parentListener);
