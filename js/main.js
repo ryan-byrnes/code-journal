@@ -37,6 +37,14 @@ function submitUserInput() {
   data.view = entriesView.getAttribute('data-view');
   var h1Tag = document.querySelector('.edit-header');
   h1Tag.textContent = 'New Entry';
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing) {
+      data.entries[i].title = input.title.value;
+      data.entries[i].url = input['photo-url'].value;
+      data.entries[i].notes = input.notes.value;
+    }
+  }
+
   switchViews();
 
 }
@@ -57,6 +65,14 @@ function submitUserInput() {
     </div>
   </div>
 </ul>
+
+for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing) {
+      data.entries[i].title = input.title.value;
+      data.entries[i].url = input['photo-url'].value;
+      data.entries[i].notes = input.notes.value;
+    }
+  }
 */
 
 function addEntry(entries) {
@@ -114,6 +130,17 @@ function addEntry(entries) {
   bodyText.setAttribute('class', 'text-content');
   bodyText.textContent = entries.notes;
   divRow3.appendChild(bodyText);
+
+  var inputForm = document.querySelector('.input-form');
+  var input = inputForm.elements;
+
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i] === data.editing) {
+      heading.replaceWith(input.title.value);
+      image.replaceWith(input['photo-url'].value);
+      bodyText.replaceWith(input.notes.value);
+    }
+  }
 
   return listItem;
 }
